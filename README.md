@@ -11,13 +11,21 @@ Uniform cost search is the general version of breadth-first search where only th
 This heuristic function returns the number of misplaced tiles of a state. That is to say, it evaluates every tile of every game board to see if it is in the goal-state location. If not, h_n will increment by 1 for every tile. Hence the worst possible h_n for any 8 Puzzle is 9.
 
 This heuristic encourages the program to expand nodes in the queue that have the most number of correctly placed tiles. This in most cases means a desirable state, although it would misevaluate some layouts such as the following example:
+
 [[*, 2, 3],
+
 [4, 5, 6],
+
 [7, 8, 1]]
+
 In this case, only two tiles are misplaced: the empty tile and the 1 tile. However, this state is actually quite difficult to solve and would take more moves than say the following example:
+
 [[1, 2, 3],
+
 [4, 6, *],
+
 [7, 5, 8]]
+
 We can determine by just looking that this case requires only 3 slides to solve (left, down, right), but because it has 4 misplaced tiles instead of 2, its heuristic distance is actually higher.
 
 3. A* with Manhattan Heuristic
